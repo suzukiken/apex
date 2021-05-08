@@ -1,14 +1,30 @@
-# Welcome to your CDK TypeScript project!
+# CDK Project to create Route 53 A Record
 
-This is a blank project for TypeScript development with CDK.
+## Purpose
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+Sometimes Apex A record will be required for creating subdomains.
+Otherwise you might get error message like this.
+`Custom domain is not a valid subdomain: Was not able to resolve the root domain, please ensure an A record exists for the root domain.`
 
-## Useful commands
+To solve this problem, this CDK project place the record.
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+## Resources to be created
+
+* Route 53 A Record
+  * apex domain
+    * Target: S3 Bucket
+* S3 Bucket
+
+(diagram)[https://diagram.figmentresearch.com/apex]
+
+## Commands
+
+* `npm install`
+* `cdk deploy`
+* `npm run diagram`
+
+## Parameters
+
+These parameters are defined in cdk.json 
+
+* domain name
